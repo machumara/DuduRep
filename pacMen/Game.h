@@ -9,10 +9,12 @@ public:
 	Game();
 	void play();
 	void getPlayerInput();
-	void checkMove();
 
 private:
 	Level _level;
 	Player _player;
+
+	int _levelWidth;
+	int _levelHight;
 };
 

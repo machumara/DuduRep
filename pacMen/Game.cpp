@@ -8,6 +8,10 @@ using namespace std;
 Game::Game()
 {
 	_level.load("level1.txt");
+
+	_levelWidth = _level._levelData[0].size();
+	_levelHight = _level._levelData.size();
+
 	gameOver = false;
 }
 
@@ -19,12 +23,8 @@ void Game::play()
 
 		_level.print(_player);
 		getPlayerInput();
-		_player.move();
-		checkMove();
-
-		//cout << endl << "Y = " << _player.getY() << endl;
-
-		//system("PAUSE");
+		_player.move(_levelWidth, _levelHight);
+		
 	}
 }
 
@@ -36,22 +36,22 @@ void Game::getPlayerInput()
 		{
 		case 'w'://UP
 		case 'W':
-			_player.setDirUp();
+			_player.setDir(0, -1);
 			break;
 
 		case 's'://DOWN
 		case 'S':
-			_player.setDirDown();
+			_player.setDir(0, 1);
 			break;
 
 		case 'a'://LEFT
 		case 'A':
-			_player.setDirLeft();
+			_player.setDir(-1, 0);
 			break;
 
 		case 'd'://RIGHT
 		case 'D':
-			_player.setDirRight();
+			_player.setDir(1, 0);
 			break;
 
 		case 'q'://Exit
@@ -59,29 +59,5 @@ void Game::getPlayerInput()
 			gameOver = true;
 			break;
 		}
-	}
-}
-
-void Game::checkMove()
-{
-	if (_player.getY() == 0)
-	{
-		_player.setY(_player.getY() + 1);
-		_player.setDirStop();
-	}
-	else if (_player.getY() == _level._levelData.size() - 1)
-	{
-		_player.setY(_player.getY() - 1);
-		_player.setDirStop();
-	}
-	else if (_player.getX() == 0)
-	{
-		_player.setX(_player.getX() + 1);
-		_player.setDirStop();
-	}
-	else if (_player.getX() == _level._levelData[0].size() -1)
-	{
-		_player.setX(_player.getX() - 1);
-		_player.setDirStop();
 	}
 }

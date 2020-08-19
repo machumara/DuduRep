@@ -6,28 +6,26 @@ Player::Player()
 	_posY = 12;
 	_turns = 1;
 	_scores = 0;
-	_direction = STOP;
+	_dirX = 0;
+	_dirY = 0;
 }
 
-void Player::move()
+void Player::move(int levelWidth, int levelHight)
 {
 	_prevPosX = _posX;
 	_prevPosY = _posY;
 
-	switch (_direction)
+	if (_posX + _dirX > 0 && _posX + _dirX < levelWidth-1 && _posY + _dirY > 0 && _posY + _dirY < levelHight-1)
 	{
-	case 0:
-		_posY--;
-		break;
-	case 1:
-		_posY++;
-		break;
-	case 2:
-		_posX--;
-		break;
-	case 3:
-		_posX++;
-		break;
+		_posX += _dirX;
+		_posY += _dirY;
 	}
+}
+
+void Player::setDir(int dirX, int dirY)
+{
+	_dirX = dirX;
+	_dirY = dirY;
+
 }
 

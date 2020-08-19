@@ -4,7 +4,7 @@ class Player
 public:
 	Player();
 
-	void move();
+	void move(int levelWidth, int levelHight);
 
 	//getters
 	int getX() { return _posX;}
@@ -17,18 +17,8 @@ public:
 	void setY(int y) {_posY = y;}
 	void setPrevX(int x) {_prevPosX = x;}
 	void setPrevY(int y) {_prevPosY = y;}
-
-#define UP 0;
-#define DOWN 1;
-#define LEFT 2;
-#define RIGHT 3;
-#define STOP 4;
-
-	void setDirUp() { _direction = UP; }
-	void setDirDown() { _direction = DOWN; }
-	void setDirLeft() { _direction = LEFT; }
-	void setDirRight() { _direction = RIGHT; }
-	void setDirStop() { _direction = STOP; }
+	void setDir(int dirX, int dirY);
+	
 
 private:
 	int _posX;
@@ -37,6 +27,7 @@ private:
 	int _prevPosY;
 	int _turns;
 	int _scores;
-	int _direction;
+	int _dirX;
+	int _dirY;
 };
 
