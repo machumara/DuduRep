@@ -1,33 +1,30 @@
 #pragma once
+#include "Point.h"
 class Player
 {
 public:
 	Player();
 
-	void move(int levelWidth, int levelHight);
+	void move(Point levelSize);
 
 	//getters
-	int getX() { return _posX;}
-	int getY() { return _posY;}
-	int getPrevX() { return _prevPosX;}
-	int getPrevY() { return _prevPosY;}
+	Point getPos() { return _pos; }
+	Point getPrevPos() { return _prevPos; }
+	Point getDir() { return _dir; }
+	
 
 	//setters
-	void setX(int x) {_posX = x;}
-	void setY(int y) {_posY = y;}
-	void setPrevX(int x) {_prevPosX = x;}
-	void setPrevY(int y) {_prevPosY = y;}
-	void setDir(int dirX, int dirY);
+	void setPos(Point pos);
+	void setPrevPos(Point prevPos);
+	void setDir(Point dir);
 	
 
 private:
-	int _posX;
-	int _posY;
-	int _prevPosX;
-	int _prevPosY;
+	Point _pos;
+	Point _prevPos;
+	Point _dir;
 	int _turns;
 	int _scores;
-	int _dirX;
-	int _dirY;
+	
 };
 
