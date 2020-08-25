@@ -20,6 +20,11 @@ void Player::move(Point levelSize)
 	}
 }
 
+Point Player::getNextMove()
+{
+	return _pos + _dir;
+}
+
 void Player::setPos(Point pos)
 {
 	_pos = pos;

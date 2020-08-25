@@ -19,6 +19,9 @@ public:
 	Point getSize() { return _size; }
 	char getTile(Point pos);
 
+	//setters
+	void setTile(Point point, char symb);
+
 	
 	
 private:

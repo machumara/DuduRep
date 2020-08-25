@@ -29,12 +29,12 @@ void Level::load(string levelFileName)
 void Level::print(Player player)
 {
 	//set player pos
-	_levelData[player.getPos().y][player.getPos().x] = '@';
+	setTile(player.getPos(), '@');
 
 	//remove prev player pos
 	if (player.getPos() != player.getPrevPos())
 	{
-		_levelData[player.getPrevPos().y][player.getPrevPos().x] = ' ';
+		setTile(player.getPrevPos(), ' ');
 	}
 
 	//print the level
@@ -47,5 +47,10 @@ void Level::print(Player player)
 char Level::getTile(Point pos)
 {
 	return _levelData[pos.y][pos.x];
+}
+
+void Level::setTile(Point point, char symb)
+{
+	_levelData[point.y][point.x] = symb;
 }
 

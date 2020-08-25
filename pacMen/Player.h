@@ -11,6 +11,7 @@ public:
 	Point getPos() { return _pos; }
 	Point getPrevPos() { return _prevPos; }
 	Point getDir() { return _dir; }
+	Point getNextMove();
 	
 
 	//setters

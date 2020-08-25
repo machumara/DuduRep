@@ -65,7 +65,7 @@ void Game::getPlayerInput()
 
 void Game::checkMove()
 {
-	switch (_level.getTile(Point(_player.getPos().x + _player.getDir().x, _player.getPos().y + _player.getDir().y)))
+	switch (_level.getTile(_player.getNextMove()))
 	{
 	case '|':
 	case '-':
